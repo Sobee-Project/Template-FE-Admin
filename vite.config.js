@@ -1,18 +1,12 @@
-import {defineConfig} from 'vite'
-import react from '@vitejs/plugin-react'
-import svgrPlugin from 'vite-plugin-svgr'
-import macrosPlugin from 'vite-plugin-babel-macros'
-import eslint from 'vite-plugin-eslint'
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
+import svgrPlugin from 'vite-plugin-svgr';
+import macrosPlugin from 'vite-plugin-babel-macros';
 
 // https://vitejs.dev/config/
 
 export default defineConfig({
-    plugins: [
-        react(),
-        eslint(),
-        svgrPlugin(),
-        macrosPlugin(),
-    ],
+    plugins: [react(), svgrPlugin(), macrosPlugin()],
     build: {
         outDir: 'build',
         rollupOptions: {
@@ -34,9 +28,9 @@ export default defineConfig({
                     if (id.includes('node_modules/country-state-city')) {
                         return 'city-list';
                     }
-                }
-            }
-        }
+                },
+            },
+        },
     },
     server: {
         port: 3000,
@@ -56,9 +50,9 @@ export default defineConfig({
             '@widgets': '/src/widgets',
             '@contexts': '/src/contexts',
             '@constants': '/src/constants',
-        }
+        },
     },
     define: {
-        'process.env': process.env
-    }
-})
+        'process.env': process.env,
+    },
+});
